@@ -14,9 +14,16 @@
 
 <div ng-controller="TaskCtrl">
   <h1>My tasks</h1>
+  <p>
   New task: <input type="text" ng-model="newTaskName"> <a href ng-click="addTask()">add</a>
+  </p>
+
+  <p>
+  Hide completed tasks? <input type="checkbox" ng-model="hideCompleted">
+  </p>
+
   <ul>
-    <li ng-repeat="t in taskList">
+    <li ng-repeat="t in taskList" ng-hide="hideCompleted && t.completed">
       <input type="checkbox" ng-model="t.completed">
       <span ng-class="{completed: t.completed}">{{ t.name }}</span> - <a href ng-click="removeTask($index)">remove</a>
     </li>
