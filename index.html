@@ -13,7 +13,16 @@
 <body>
 
 <div ng-controller="TaskCtrl">
-  <h1>My tasks</h1>
+  <div task-list></div>
+
+  <div task-list></div>
+
+</div>
+
+</body>
+
+<script type="text/ng-template" id="task-list.html">
+    <h1>My tasks</h1>
   <p>
   New task: <input type="text" ng-model="newTaskName"> <a href ng-click="addTask()">add</a>
   </p>
@@ -34,7 +43,5 @@
     </li>
   </ul>
 
-</div>
-
-</body>
+</script>
 </html>
