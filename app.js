@@ -12,4 +12,13 @@ angular.module('MyApp').
       {name: "Third task", completed: false}
     ];
 
+    $scope.addTask = function() {
+      if (!($scope.newTaskName === undefined || $scope.newTaskName === '')) {
+        $scope.taskList.push(
+          {name: $scope.newTaskName, completed: false}
+        );
+        delete $scope.newTaskName;
+      }
+    };
+
   }]);

@@ -14,6 +14,7 @@
 
 <div ng-controller="TaskCtrl">
   <h1>My tasks</h1>
+  New task: <input type="text" ng-model="newTaskName"> <a href ng-click="addTask()">add</a>
   <ul>
     <li ng-repeat="t in taskList" ng-class="{completed: t.completed}">
       <input type="checkbox" ng-model="t.completed">
