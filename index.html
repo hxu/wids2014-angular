@@ -29,7 +29,8 @@
   <ul>
     <li ng-repeat="t in taskList | filter:{name: filterText}" ng-hide="hideCompleted && t.completed">
       <input type="checkbox" ng-model="t.completed">
-      <span ng-class="{completed: t.completed}">{{ t.name }}</span> - <a href ng-click="removeTask($index)">remove</a>
+      <span ng-class="{completed: t.completed}" ng-click="t.editing = true" ng-hide="t.editing">{{ t.name }}</span>
+      <span ng-show="t.editing"><input type="text" ng-model="t.name" ng-blur="t.editing = false"></span> - <a href ng-click="removeTask($index)">remove</a>
     </li>
   </ul>
 
