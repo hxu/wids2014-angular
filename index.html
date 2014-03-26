@@ -13,16 +13,16 @@
 <body>
 
 <div ng-controller="TaskCtrl">
-  <div task-list></div>
+  <div task-list list-name="First list"></div>
 
-  <div task-list></div>
+  <div task-list list-name="Second list"></div>
 
 </div>
 
 </body>
 
 <script type="text/ng-template" id="task-list.html">
-    <h1>My tasks</h1>
+    <h1>{{ listName }}</h1>
   <p>
   New task: <input type="text" ng-model="newTaskName"> <a href ng-click="addTask()">add</a>
   </p>

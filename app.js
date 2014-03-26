@@ -14,7 +14,8 @@ angular.module('MyApp').
   directive('taskList', function() {
     return {
       scope: true,
-      controller: ['$scope', function($scope) {
+      controller: ['$scope', '$attrs', function($scope, $attrs) {
+        $scope.listName = $attrs.listName || 'Task list';
 
         $scope.taskList = [
           {name: "My first task", completed: false},
