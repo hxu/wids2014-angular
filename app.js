@@ -6,4 +6,10 @@ angular.module('MyApp').
   controller('TaskCtrl', ['$scope', function($scope) {
     $scope.welcomeMessage = "Hello world!";
 
+    $scope.taskList = [
+      {name: "My first task", completed: false},
+      {name: "Second task", completed: true},
+      {name: "Third task", completed: false}
+    ];
+
   }]);

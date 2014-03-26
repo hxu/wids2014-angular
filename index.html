@@ -4,11 +4,22 @@
   <meta charset="UTF-8">
   <script type="application/javascript" src="angular.js"></script>
   <script type="application/javascript" src="app.js"></script>
+  <style>
+    .completed {
+      text-decoration: line-through;
+    }
+  </style>
 </head>
 <body>
 
 <div ng-controller="TaskCtrl">
-  <h1>{{ welcomeMessage }}</h1>
+  <h1>My tasks</h1>
+  <ul>
+    <li ng-repeat="t in taskList" ng-class="{completed: t.completed}">
+      <input type="checkbox" ng-model="t.completed">
+      {{ t.name }}
+    </li>
+  </ul>
 
 </div>
 
