@@ -21,4 +21,8 @@ angular.module('MyApp').
       }
     };
 
+    $scope.removeTask = function(taskIdx) {
+      $scope.taskList.splice(taskIdx, 1);
+    };
+
   }]);
