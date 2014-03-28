@@ -1,10 +1,41 @@
 <!DOCTYPE HTML>
-<html>
+<html ng-app="MyApp">
 <head>
   <script type="application/javascript" src="angular.js"></script>
   <script type="application/javascript" src="app.js"></script>
 </head>
-<body ng-app="MyApp">
 
+<style>
+  .completed {
+    text-decoration: line-through;
+  }
+</style>
+<body ng-controller="TodoCtrl">
+<h1>{{ helloMessage }}</h1>
+
+<div task-list list-name="Today's todos"></div>
+
+<div task-list></div>
 </body>
+
+<script type="text/ng-template" id="task-list.html">
+  <h1>{{ taskListName }}</h1>
+  <input type="text" ng-model="newTaskName"> - <a href ng-click="addTask()">add</a>
+
+<br />
+Hide completed? <input type="checkbox" ng-model="hideCompleted">
+
+<br />
+Text search: <input type="text" ng-model="filterTask">
+
+<ul>
+  <li ng-repeat="t in taskList | filter:{name: filterTask}" ng-hide="hideCompleted && t.completed">
+    <input type="checkbox" ng-model="t.completed">
+    <span ng-class="{completed: t.completed}" ng-click="t.isEditing = true" ng-hide="t.isEditing">{{ t.name }}</span>
+    <input type="text" ng-model="t.name" ng-show="t.isEditing" ng-blur="t.isEditing = false">
+    - <a href ng-click="removeTask($index)">remove</a>
+  </li>
+</ul>
+</script>
+
 </html>
